@@ -1,4 +1,4 @@
-package aula12;
+package projeto;
 public class Ave extends Animais {
     protected String corPena;
     protected float bico;
@@ -9,7 +9,6 @@ public class Ave extends Animais {
         this.bico = bico;
     }
 
-    
     public float getBico() {
         return bico;
     }
@@ -17,7 +16,6 @@ public class Ave extends Animais {
     public void setBico(float bico) {
         this.bico = bico;
     }
-
     
     public String getCorPena() {
         return corPena;

@@ -1,4 +1,4 @@
-package aula12;
+package projeto;
 public class Reptil extends Animais {
     protected String corEscama;
     protected boolean peconheto;
@@ -8,7 +8,6 @@ public class Reptil extends Animais {
         this.corEscama = corEscama;
         this.peconheto = peconheto;
     }
-
 
     public boolean getPeconheto() {
         return peconheto;

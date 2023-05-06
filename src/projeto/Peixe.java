@@ -1,4 +1,4 @@
-package aula12;
+package projeto;
 public class Peixe extends Animais {
     protected String corEscama;
     protected int profundidade;
@@ -8,8 +8,6 @@ public class Peixe extends Animais {
         this.corEscama = corEscama;
         this.profundidade = profundidade;
     }
-
-    
 
     public int getProfundidade() {
         return profundidade;

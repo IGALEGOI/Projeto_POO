@@ -1,4 +1,4 @@
-package aula12;
+package projeto;
 public class Mamifero extends Animais {
     protected String corPelo;
     protected int velocidade;
@@ -8,8 +8,6 @@ public class Mamifero extends Animais {
         this.corPelo = corPelo;
         this.velocidade = velocidade;
     }
-
-    
 
     public int getVelocidade() {
         return velocidade;

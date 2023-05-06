@@ -1,4 +1,4 @@
-package aula12;
+package projeto;
 public abstract class Animais {
 
     protected String nome;
