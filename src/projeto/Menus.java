@@ -207,7 +207,11 @@ public class Menus {
                         System.out.println("--------------------------");
                         System.out.print("Digite o id do Animal de escolha: ");
                         id = sc.nextInt();
-                    }while(id<0 || id>100);
+                        
+                        if(peixes[id] == null){
+                            System.out.print("O animal selecionado não existe!");
+                        }
+                    }while((id<0 || id>100) && peixes[id] != null);
                     System.out.print(peixes[id]);
                     
                     do{
@@ -242,7 +246,10 @@ public class Menus {
                         System.out.println("--------------------------");
                         System.out.print("Digite o id do Animal de escolha: ");
                         id = sc.nextInt();
-                    }while(id<0 || id>100);
+                        if(aves[id] == null){
+                            System.out.print("O animal selecionado não existe!");
+                        }
+                    }while((id<0 || id>100) && aves[id] != null);
                     System.out.print(aves[id]);
                     
                     do{
@@ -279,7 +286,10 @@ public class Menus {
                         System.out.println("---------------------------");
                         System.out.print("Digite o id do Animal de escolha:");
                         id = sc.nextInt();
-                    }while(id<0 || id>100);
+                        if(reptils[id] == null){
+                            System.out.print("O animal selecionado não existe!");
+                        }
+                    }while((id<0 || id>100) && reptils[id] != null);
                     System.out.print(reptils[id]);
                     do{
                         System.out.println("----- MENU DE AÇÕES -----");
@@ -313,7 +323,10 @@ public class Menus {
                         System.out.println("---------------------------");
                         System.out.print("Digite o id do Animal de escolha:");
                         id = sc.nextInt();
-                    }while(id<0 || id>100);
+                        if(mamiferos[id] == null){
+                            System.out.print("O animal selecionado não existe!");
+                        }
+                    }while((id<0 || id>100) && mamiferos[id] != null);
                     System.out.print(mamiferos[id]);
                     
                     do{
