@@ -141,7 +141,7 @@ public class Menus {
                         reptils[i] = new Reptil(cor,pp,peso,idade,membros,nome);
                     }
                 }
-            menuPrincipal();
+                menuPrincipal();
             }
             if(escolha==3) {
                 int velocidade = -1;
@@ -178,6 +178,7 @@ public class Menus {
                 menuPrincipal();
 	    }
     }
+    
     public void menuVerAnimais(){
     	int escolha;
         int id=-1;
@@ -217,19 +218,55 @@ public class Menus {
                     do{
                         System.out.println("----- MENU DE AÇÕES -----");
                         System.out.println("[0] Excluir Animal");
-                        System.out.println("[1] Emitir Som");
-                        System.out.println("[2] Alimentar");
-                        System.out.println("[3] Locomover");
-                        System.out.println("[4] Fazer Bolhas");
-                        System.out.println("[5] Voltar ao Menu");
+                        System.out.println("[1] Atualizar Animal");
+                        System.out.println("[2] Emitir Som");
+                        System.out.println("[3] Alimentar");
+                        System.out.println("[4] Locomover");
+                        System.out.println("[5] Fazer Bolhas");
+                        System.out.println("[6] Voltar ao Menu");
                         System.out.print("Sua escolha:");
                         escolha = sc.nextInt();
-                    }while(escolha < 0 || escolha > 5 );
-                    if (escolha == 0){} //
-                    if (escolha == 1){peixes[id].emitirSom();}
-                    if (escolha == 2){peixes[id].alimentar();}
-                    if (escolha == 3){peixes[id].locomover();}
-                    if (escolha == 4){peixes[id].soltarBolha();}
+                    }while(escolha < 0 || escolha > 6 );
+                    if (escolha == 0){peixes[id]=null;} 
+                    if (escolha == 1){
+                    String cor = "";
+                    String nome = "";
+                    int idade = 0;
+                    int membros = 0;
+                    float peso = 0;
+                    int profundidade = 0; 
+                    do {sc.nextLine();
+                        System.out.print("Cor da Escama: ");
+                        cor = sc.nextLine();
+                    }while ("".equals(cor));
+                    do {System.out.print("Profundidade: ");
+                        profundidade = sc.nextInt();
+                        sc.nextLine();
+                    }while (profundidade < 0);
+                    do{System.out.print("Peso: ");
+                        peso = sc.nextFloat();
+                    }while(peso < 0);
+                    do{System.out.print("Idade: ");
+                        idade = sc.nextInt();
+                    }while( idade < 0);
+                    do{System.out.print("Membros: ");
+                        membros = sc.nextInt();
+                    }while(membros < -1);
+                    do{sc.nextLine();    
+                        System.out.print("Nome: ");
+                        nome = sc.nextLine();
+                    }while("".equals(nome));
+                    
+                    System.out.println("ATUALIZADO");
+                    peixes[id] = new Peixe(cor,profundidade,peso,idade,membros,nome);
+                    System.out.println("");
+                    menuPrincipal();
+                    }
+                    if (escolha == 2){peixes[id].emitirSom();}
+                    if (escolha == 3){peixes[id].alimentar();}
+                    if (escolha == 4){peixes[id].locomover();}
+                    if (escolha == 5){peixes[id].soltarBolha();}
+                    if(escolha==6) {menuPrincipal();}
                 }else{
                     System.out.println("Não existe cadastro em peixes!!");
                 }   break;
@@ -255,21 +292,54 @@ public class Menus {
                     do{
                         System.out.println("----- MENU DE AÇÕES -----");
                         System.out.println("[0] Excluir Animal");
-                        System.out.println("[1] Emitir Som");
-                        System.out.println("[2] Alimentar");
-                        System.out.println("[3] Locomover");
-                        System.out.println("[4] Fazer Ninho");
-                        System.out.println("[5] Bicar");
-                        System.out.println("[6] Voltar ao Menu");
+                        System.out.println("[1] Atualizar Animal");
+                        System.out.println("[2] Emitir Som");
+                        System.out.println("[3] Alimentar");
+                        System.out.println("[4] Locomover");
+                        System.out.println("[5] Fazer Ninho");
+                        System.out.println("[6] Bicar");
+                        System.out.println("[7] Voltar ao Menu");
                         System.out.print("Sua escolha:");
                         escolha = sc.nextInt();
-                    }while(escolha < 0 || escolha > 6 );
-                    if (escolha == 0){}
-                    if (escolha == 1){aves[id].emitirSom();}
-                    if (escolha == 2){aves[id].alimentar();}
-                    if (escolha == 3){aves[id].locomover();}
-                    if (escolha == 4){aves[id].fazerNinho();}
-                    if (escolha == 5){aves[id].bicar();}
+                    }while(escolha < 0 || escolha > 7 );
+                    if (escolha == 0){aves[id]=null;}
+                    if (escolha == 1){
+                    	String cor = "";
+                        String nome = "";
+                        int idade = 0;
+                        int membros = 0;
+                        float peso = 0;
+                        float bico =-1;
+                        do{sc.nextLine();
+                            System.out.print("Cor da pena:");
+                            cor = sc.nextLine();
+                        }while("".equals(cor));
+                        do{System.out.print("Tamanho do bico:");
+                            bico = sc.nextFloat();
+                        }while(bico < 0);
+                        do{System.out.print("Peso:");
+                            peso = sc.nextFloat();
+                        }while(peso < 0);
+                        do{System.out.print("Idade:");
+                            idade = sc.nextInt();
+                        }while( idade < 0);
+                        do{ System.out.print("Membros:");          
+                            membros = sc.nextInt();
+                        }while(membros < 0);
+                        do{ sc.nextLine();
+                            System.out.print("Nome: ");
+                            nome = sc.nextLine();
+                        }while("".equals(nome));
+                        System.out.println("ATUALIZADO");
+                        aves[id] = new Ave(cor,bico,peso,idade,membros,nome);
+                        menuPrincipal();
+                    }
+                    if (escolha == 2){aves[id].emitirSom();}
+                    if (escolha == 3){aves[id].alimentar();}
+                    if (escolha == 4){aves[id].locomover();}
+                    if (escolha == 5){aves[id].fazerNinho();}
+                    if (escolha == 6){aves[id].bicar();
+                    if(escolha==7) {menuPrincipal();}}
                 }else{
                     System.out.println("Não existe cadastro em aves!!");
                 }   break;
@@ -294,19 +364,51 @@ public class Menus {
                     do{
                         System.out.println("----- MENU DE AÇÕES -----");
                         System.out.println("[0] Excluir Animal");
-                        System.out.println("[1] Emitir Som");
-                        System.out.println("[2] Alimentar");
-                        System.out.println("[3] Locomover");
-                        System.out.println("[4] Envenenar");
-                        System.out.println("[5] Voltar ao Menu");
+                        System.out.println("[2] Atualizar Animal");
+                        System.out.println("[2] Emitir Som");
+                        System.out.println("[3] Alimentar");
+                        System.out.println("[4] Locomover");
+                        System.out.println("[5] Envenenar");
+                        System.out.println("[6] Voltar ao Menu");
                         System.out.print("Sua escolha:");
                         escolha = sc.nextInt();
-                    }while(escolha < 0 || escolha > 5 );
-                    if (escolha == 0){}
-                    if (escolha == 1){reptils[id].emitirSom();}
-                    if (escolha == 2){reptils[id].alimentar();}
-                    if (escolha == 3){reptils[id].locomover();}
-                    if (escolha == 4){reptils[id].envenenamento();}  
+                    }while(escolha < 0 || escolha > 6 );
+                    if (escolha == 0){reptils[id]=null;}
+                    if (escolha == 1){
+                    	String cor = "";
+                        String nome = "";
+                        int idade = 0;
+                        int membros = 0;
+                        float peso = 0;
+                        boolean pp;     
+                        do{sc.nextLine();
+                            System.out.print("Cor da escama:");
+                            cor = sc.nextLine();
+        		}while("".equals(cor));
+                        System.out.print("Peconhento (true ou false):");
+                        pp = sc.nextBoolean();
+             		do{System.out.print("Peso: ");         
+                            peso = sc.nextFloat();
+                        }while(peso < 0);
+                        do{System.out.print("Idade: ");   
+                            idade = sc.nextInt();
+                        }while( idade < 0);
+                        do{ System.out.print("Membros: ");          
+                            membros = sc.nextInt();
+                        }while(membros < 0);
+                        do{ sc.nextLine();
+                            System.out.print("Nome: ");
+                            nome = sc.nextLine();
+                        }while("".equals(nome));
+                         System.out.println("ATUALIZADO");
+                         reptils[id] = new Reptil(cor,pp,peso,idade,membros,nome);
+                         menuPrincipal();
+                    }
+                    if (escolha == 2){reptils[id].emitirSom();}
+                    if (escolha == 3){reptils[id].alimentar();}
+                    if (escolha == 4){reptils[id].locomover();}
+                    if (escolha == 5){reptils[id].envenenamento();
+                    if(escolha==6) {menuPrincipal();}}  
                 }else{
                     System.out.println("Não existe cadastro em reptils!!");
                 }   break;
@@ -332,17 +434,48 @@ public class Menus {
                     do{
                         System.out.println("----- MENU DE AÇÕES -----");
                         System.out.println("[0] Excluir Animal");
-                        System.out.println("[1] Emitir Som");
-                        System.out.println("[2] Alimentar");
-                        System.out.println("[3] Locomover");
-                        System.out.println("[4] Voltar ao Menu");
+                        System.out.println("[2] Emitir Som");
+                        System.out.println("[3] Alimentar");
+                        System.out.println("[4] Locomover");
+                        System.out.println("[5] Voltar ao Menu");
                         System.out.print("Sua escolha:");
                         escolha = sc.nextInt();
-                    }while(escolha < 0 || escolha > 4 );
-                    if (escolha == 0){}
-                    if (escolha == 1){mamiferos[id].emitirSom();}
-                    if (escolha == 2){mamiferos[id].alimentar();}
-                    if (escolha == 3){mamiferos[id].locomover();}
+                    }while(escolha < 0 || escolha > 5 );
+                    if (escolha == 0){mamiferos[id]=null;}
+                    if (escolha == 1){
+                    	String cor = "";
+                    String nome = "";
+                    int idade = 0;
+                    int membros = 0;
+                    float peso = 0;
+                    int velocidade = -1;
+                    do{ sc.nextLine();
+                        System.out.print("Cor do pelo:");
+                        cor = sc.nextLine();
+                    }while("".equals(cor));
+                    do{System.out.print("Velocidade:");
+                        velocidade = sc.nextInt();
+                    }while(velocidade <0);                    
+                    do{System.out.print("Peso:");
+                        peso = sc.nextFloat();
+                    }while(peso <0 );                    
+                    do{System.out.print("Idade:");
+                        idade = sc.nextInt();
+                    }while( idade <0 );                   
+                    do{System.out.print("Membros:");
+                        membros = sc.nextInt();
+                    }while(membros <0 );               
+                    do{sc.nextLine();
+                        System.out.print("Nome: ");
+                        nome = sc.nextLine();
+                    }while("".equals(nome));
+                     System.out.println("ATUALIZADO");
+                     mamiferos[id] = new Mamifero(cor,velocidade,peso,idade,membros,nome);
+                    }
+                    if (escolha == 2){mamiferos[id].emitirSom();}
+                    if (escolha == 3){mamiferos[id].alimentar();}
+                    if (escolha == 4){mamiferos[id].locomover();
+                    if(escolha==5) {menuPrincipal();}}
                 }else{
                     System.out.println("Não existe cadastro em mamiferos!!");
                 }   break;
@@ -363,11 +496,11 @@ public class Menus {
         switch(escolha)
         {
             case 0:
-            for (Peixe peixe : peixes) {
-                ret = peixe != null;
-                if(ret)
-                    break;
-            }
+                for (Peixe peixe : peixes) {
+                    ret = peixe != null;
+                    if(ret)
+                        break;
+                }
                 break;
 
             case 1:
@@ -396,6 +529,7 @@ public class Menus {
                 break;
             default:   
                 ret = false;
+                
         }
         
         return ret;
